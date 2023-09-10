@@ -35,8 +35,7 @@
                                             <th>Username</th>
                                             <th>Email</th>
                                             <th>Role</th>
-                                            <th>dummy</th>
-                                            <th>dummy</th>
+                                            <th>Modify</th>
                                         </tr>
                                     </thead>
                                     <!-- <tfoot>
@@ -56,8 +55,14 @@
                                             <td><?php echo e($user['username']); ?></td>
                                             <td><?php echo e($user['email']); ?></td>
                                             <td><?php echo e($user['role']); ?></td>
-                                            <td>button1</td>
-                                            <td>button2</td>
+                                            <td>
+                                            <form action="/users/<?php echo e($user['id']); ?>" method="post">
+                                                <button class="btn btn-warning btn-circle" type="button" onclick="window.location.href='/users/<?php echo e($user['id']); ?>/edit';"><i class="fas fa-pen"></i></button>
+                                                <?php echo csrf_field(); ?>
+                                                <?php echo method_field('DELETE'); ?>
+                                                <button class="btn btn-danger btn-circle" type="submit"><i class="fas fa-trash"></i></button>
+                                            </form>
+                                            </td>
                                         </tr>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </tbody>

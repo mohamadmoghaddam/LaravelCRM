@@ -37,8 +37,7 @@
                                             <th>Username</th>
                                             <th>Email</th>
                                             <th>Role</th>
-                                            <th>dummy</th>
-                                            <th>dummy</th>
+                                            <th>Modify</th>
                                         </tr>
                                     </thead>
                                     <!-- <tfoot>
@@ -58,8 +57,14 @@
                                             <td>{{ $user['username'] }}</td>
                                             <td>{{ $user['email'] }}</td>
                                             <td>{{ $user['role'] }}</td>
-                                            <td>button1</td>
-                                            <td>button2</td>
+                                            <td>
+                                            <form action="/users/{{ $user['id'] }}" method="post">
+                                                <button class="btn btn-warning btn-circle" type="button" onclick="window.location.href='/users/{{ $user['id'] }}/edit';"><i class="fas fa-pen"></i></button>
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-danger btn-circle" type="submit"><i class="fas fa-trash"></i></button>
+                                            </form>
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
