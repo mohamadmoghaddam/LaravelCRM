@@ -27,31 +27,65 @@
                                     <h1 class="h4 text-gray-900 mb-4">Add a User!</h1>
                                 </div>
                                 <form class="user" method="post" action="/users">
+                                    <?php echo csrf_field(); ?>
                                     <div class="form-group">
-                                        <input type="text" name="username" class="form-control form-control-user" id="exampleInputUsername"
+                                        <input type="text" name="username" value="<?php echo e(old('username')); ?>"  class="form-control form-control-user" id="exampleInputUsername"
                                             placeholder="Username">
+                                            <?php $__errorArgs = ['username'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                            <?php echo e($message); ?>
+
+                                           <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="text" name="firstname" class="form-control form-control-user" id="exampleFirstName"
+                                            <input type="text" name="firstname" value="<?php echo e(old('firstname')); ?>" class="form-control form-control-user" id="exampleFirstName"
                                                 placeholder="First Name">
                                         </div>
                                         <div class="col-sm-6">
-                                            <input type="text" name="lastname" class="form-control form-control-user" id="exampleLastName"
+                                            <input type="text" name="lastname" value="<?php echo e(old('lastname')); ?>" class="form-control form-control-user" id="exampleLastName"
                                                 placeholder="Last Name">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        <input type="email" name="email" value="<?php echo e(old('email')); ?>" class="form-control form-control-user" id="exampleInputEmail"
                                             placeholder="Email Address">
+                                            <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                            <?php echo e($message); ?>
+
+                                           <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <input type="password" name="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password">
+                                            <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                             <?php echo e($message); ?>
+
+                                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                         </div>
                                         <div class="col-sm-6">
-                                            <input type="password" name="confirm" class="form-control form-control-user"
+                                            <input type="password" name="password_confirmation" class="form-control form-control-user"
                                                 id="exampleRepeatPassword" placeholder="Repeat Password">
                                         </div>
                                     </div>
