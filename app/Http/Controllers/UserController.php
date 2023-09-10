@@ -23,10 +23,10 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'username' => 'required',
+        $request->validate([
+            'username' => 'required|unique:App\Models\User,username',
             'password' => 'required|confirmed|min:8',
-            'email' => 'required|email'
+            'email' => 'required|email|unique:App\Models\User,email'
         ]);
         User::create([
             'username' => $request->username,
