@@ -29,6 +29,7 @@
                                     <h1 class="h4 text-gray-900 mb-4">Add a User!</h1>
                                 </div>
                                 <form class="user" method="post" action="/users">
+                                    @csrf
                                     <div class="form-group">
                                         <input type="text" name="username" class="form-control form-control-user" id="exampleInputUsername"
                                             placeholder="Username">
