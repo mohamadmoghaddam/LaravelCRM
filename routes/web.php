@@ -22,5 +22,9 @@ Route::controller(LoginController::class)->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'dashboard']);
+});
+
+Route::fallback(function () {
+    return view('notfound');
 });
