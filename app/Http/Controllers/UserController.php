@@ -13,4 +13,7 @@ class UserController extends Controller
             'users' => $data
         ]);
     }
+    public function create(){
+        return view('adduser');
+    }
 }
