@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -37,6 +38,35 @@ class UserController extends Controller
             'role' => 'subscriber'
         ]);
         return redirect('/users');
+    }
+
+    public function edit(User $user){
+        return view('edituser',[
+            'user' => $user
+        ]);
+    }
+
+    public function update(Request $request, User $user){
+        $request->validate([
+            'username' => [
+                'required',
+                Rule::unique('users')->ignore($user)
+            ],
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('users')->ignore($user)
+            ]
+        ]);
+
+        $user->update([
+            'username' => $request->username,
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'email' => $request->email
+        ]);
+        return redirect('/users');
+
     }
 }
 
