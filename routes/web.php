@@ -15,15 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/', 'login');
+    Route::get('/login', 'login')->name('login');
+    Route::post('/login', 'authenticate');
 });
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
 
-Route::post('/login', [LoginController::class , 'authenticate']);
-
-Route::middleware('auth:sanctum')->get('/dashboard', function () {
+Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
 });
