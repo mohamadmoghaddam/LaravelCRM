@@ -23,4 +23,11 @@ class LoginController extends Controller
             'username' => 'The provided credentials do not match our records.',
         ])->onlyInput('username');
     }
+
+    public function login(){
+        if (Auth::check()) {
+            return redirect('/dashboard');
+        }
+        return view('login');
+    }
 }
