@@ -22,7 +22,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Nav Item - Users Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -36,6 +36,13 @@
                         <a class="collapse-item" href="/users/create">Create User</a>
                     </div>
                 </div>
+            </li>
+
+             <!-- Nav Item - Clients -->
+             <li class="nav-item">
+                <a class="nav-link" href="/clients">
+                    <i class="fas fa-fw fa-address-card"></i>
+                    <span>Clients</span></a>
             </li>
 
             <!-- Divider -->
