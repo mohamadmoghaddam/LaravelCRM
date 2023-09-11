@@ -74,9 +74,22 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Project $project)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'deadline' => 'required|date',
+            'user_id' => 'required|exists:users,id',
+            'client_id' => 'required|exists:clients,id',
+            'status' => [
+                'required',
+                Rule::in(['open', 'delivered', 'canceled'])
+            ]
+        ]);
+        $project->update($data);
+
+        return redirect('/projects');
     }
 
     /**
