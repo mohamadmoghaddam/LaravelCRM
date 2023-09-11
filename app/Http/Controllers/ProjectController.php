@@ -6,6 +6,7 @@ use App\Models\Client;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ProjectController extends Controller
 {
@@ -39,7 +40,20 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'deadline' => 'required|date',
+            'user_id' => 'required|exists:users,id',
+            'client_id' => 'required|exists:clients,id',
+            'status' => [
+                'required',
+                Rule::in(['open', 'delivered', 'canceled'])
+            ]
+        ]);
+        Project::create($data);
+
+        return redirect('/projects');
     }
 
     /**
