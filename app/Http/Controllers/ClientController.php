@@ -29,4 +29,23 @@ class ClientController extends Controller
         ]);
         return redirect('/clients');
     }
+
+    public function edit(Client $client){
+        return view('editclient',[
+            'client' => $client
+        ]);
+    }
+
+    public function update(Request $request, Client $client){
+        $request->validate([
+            'company_name' => 'required',
+            'company_address' => 'required'
+        ]);
+
+        $client->update([
+            'company_name' => $request->company_name,
+            'company_address' => $request->company_address
+        ]);
+        return redirect('/clients');
+    }
 }
