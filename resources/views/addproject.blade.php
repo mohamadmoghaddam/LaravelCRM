@@ -25,7 +25,7 @@
                         </div>
                         <div class="card-body">
                             <div class="p-5">
-                                <form class="user" method="post" action="/clients">
+                                <form class="user" method="post" action="/projects">
                                     @csrf
                                     <div class="form-group">
                                         <label for="exampleInputName">Title</label>
@@ -51,23 +51,25 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="user">Assigned User</label>
-                                        <select name="user" class="form-control" required value="{{old('user')}}" id="user">
+                                        <select name="user_id" class="form-control" required value="{{old('user_id')}}" id="user">
+                                            <option value="">--Choose a User--</option>
                                             @foreach ($users as $user)
                                                 <option value="{{ $user['id'] }}">{{ $user['username'] }}</option>
                                             @endforeach
                                         </select>
-                                            @error('user')
+                                            @error('user_id')
                                             {{ $message }}
                                             @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="client">Assigned Client</label>
-                                        <select name="client" class="form-control" required value="{{old('client')}}" id="client">
+                                        <select name="client_id" class="form-control" required value="{{old('client_id')}}" id="client">
+                                            <option value="">--Choose a Client--</option>
                                             @foreach ($clients as $client)
                                                 <option value="{{ $client['id'] }}">{{ $client['company_name'] }}</option>
                                             @endforeach
                                         </select>
-                                            @error('client')
+                                            @error('client_id')
                                             {{ $message }}
                                             @enderror
                                     </div>
