@@ -29,7 +29,7 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="exampleInputName">Title</label>
-                                        <input type="text" name="title" value="{{old('title')}}"  class="form-control form-control-user" id="exampleInputName"
+                                        <input type="text" name="title" value="{{old('title')}}"  class="form-control" id="exampleInputName"
                                             placeholder="title">
                                             @error('title')
                                             {{ $message }}
@@ -37,21 +37,21 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>
-                                        <textarea id="description" name="description" placeholder="description" class="form-control form-control-textarea" rows="4" cols="50">{{ old('description ') }}</textarea>
+                                        <textarea id="description" name="description" placeholder="description" class="form-control" rows="4" cols="50">{{ old('description ') }}</textarea>
                                         @error('description')
                                         {{ $message }}
                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputDate">Deadline</label>
-                                        <input type="date" name="deadline" value="{{old('deadline')}}"  class="form-control form-control-user" id="exampleInputDate">
+                                        <input type="date" name="deadline" value="{{old('deadline')}}"  class="form-control" id="exampleInputDate">
                                             @error('date')
                                             {{ $message }}
                                            @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="user">Assigned User</label>
-                                        <select name="user_id" class="form-control" required value="{{old('user_id')}}" id="user">
+                                        <select name="user_id" class="form-control" required id="user">
                                             <option value="">--Choose a User--</option>
                                             @foreach ($users as $user)
                                                 <option value="{{ $user['id'] }}">{{ $user['username'] }}</option>
@@ -63,7 +63,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="client">Assigned Client</label>
-                                        <select name="client_id" class="form-control" required value="{{old('client_id')}}" id="client">
+                                        <select name="client_id" class="form-control" required id="client">
                                             <option value="">--Choose a Client--</option>
                                             @foreach ($clients as $client)
                                                 <option value="{{ $client['id'] }}">{{ $client['company_name'] }}</option>
@@ -75,7 +75,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="status">Status</label>
-                                        <select name="status" class="form-control" required value="{{old('status')}}" id="status">
+                                        <select name="status" class="form-control" required id="status">
                                           <option value="open">Open</option>
                                           <option value="delivered">Delivered</option>
                                           <option value="cancelled">Cancelled</option>
