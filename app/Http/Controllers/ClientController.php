@@ -9,13 +9,13 @@ class ClientController extends Controller
 {
     public function index(){
         $clients = Client::get()->all();
-        return view('clients', [
+        return view('clients.clients', [
             'clients' => $clients
         ]);
     }
 
     public function create(){
-        return view('addclient');
+        return view('clients.addclient');
     }
 
     public function store(Request $request){
@@ -31,7 +31,7 @@ class ClientController extends Controller
     }
 
     public function edit(Client $client){
-        return view('editclient',[
+        return view('clients.editclient',[
             'client' => $client
         ]);
     }

@@ -16,7 +16,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::with(['client','user'])->get();
-        return view('projects', [
+        return view('projects.projects', [
             'projects' => $projects
         ]);
     }
@@ -29,7 +29,7 @@ class ProjectController extends Controller
         $users = User::all();
         $clients = Client::all();
 
-        return view('addproject',[
+        return view('projects.addproject',[
             'users' => $users,
             'clients' => $clients
         ]);
@@ -64,7 +64,7 @@ class ProjectController extends Controller
         $users = User::all();
         $clients = Client::all();
         $project = Project::with(['client','user'])->find($project)->first();
-        return view('editproject',[
+        return view('projects.editproject',[
             'project' => $project,
             'users' => $users,
             'clients' => $clients

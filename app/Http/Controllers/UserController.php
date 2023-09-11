@@ -12,14 +12,14 @@ class UserController extends Controller
     public function index()
     {
         $data = User::get()->all();
-        return view('users', [
+        return view('users.users', [
             'users' => $data
         ]);
     }
 
     public function create()
     {
-        return view('adduser');
+        return view('users.adduser');
     }
 
     public function store(Request $request)
@@ -41,7 +41,7 @@ class UserController extends Controller
     }
 
     public function edit(User $user){
-        return view('edituser',[
+        return view('users.edituser',[
             'user' => $user
         ]);
     }
