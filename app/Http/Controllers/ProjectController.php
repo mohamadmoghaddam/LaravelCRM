@@ -57,19 +57,18 @@ class ProjectController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Project $project)
     {
-        //
+        $users = User::all();
+        $clients = Client::all();
+        $project = Project::with(['client','user'])->find($project)->first();
+        return view('editproject',[
+            'project' => $project,
+            'users' => $users,
+            'clients' => $clients
+        ]);
     }
 
     /**
