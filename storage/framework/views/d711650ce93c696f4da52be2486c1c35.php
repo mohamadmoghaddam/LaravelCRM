@@ -18,23 +18,27 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Users</h1>
-                    <p class="mb-4">You can view and manage users here.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Clients</h1>
+                    <p class="mb-4">You can view and manage clients here.</p>
 
-                    <!-- Users Table -->
+                    <!-- Clients Table -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Users</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Clients
+                            <button class="btn btn-success btn-icon-split btn-sm float-right" onclick="window.location.href='/clients/create';">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="text">Add Client</span>
+                            </button></h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Fullname</th>
-                                            <th>Username</th>
-                                            <th>Email</th>
-                                            <th>Role</th>
+                                            <th>Company</th>
+                                            <th>Address</th>
                                             <th>Modify</th>
                                         </tr>
                                     </thead>
@@ -49,15 +53,13 @@
                                         </tr>
                                     </tfoot> -->
                                     <tbody>
-                                        <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php $__currentLoopData = $clients; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $client): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
-                                            <td><?php echo e($user['firstname'] . " " . $user['lastname']); ?></td>
-                                            <td><?php echo e($user['username']); ?></td>
-                                            <td><?php echo e($user['email']); ?></td>
-                                            <td><?php echo e($user['role']); ?></td>
+                                            <td><?php echo e($client['company_name']); ?></td>
+                                            <td><?php echo e($client['company_address']); ?></td>
                                             <td>
-                                            <form action="/users/<?php echo e($user['id']); ?>" method="post">
-                                                <button class="btn btn-warning btn-circle" type="button" onclick="window.location.href='/users/<?php echo e($user['id']); ?>/edit';"><i class="fas fa-pen"></i></button>
+                                            <form action="/clients/<?php echo e($client['id']); ?>" method="post">
+                                                <button class="btn btn-warning btn-circle" type="button" onclick="window.location.href='/clients/<?php echo e($client['id']); ?>/edit';" ><i class="fas fa-pen"></i></button>
                                                 <?php echo csrf_field(); ?>
                                                 <?php echo method_field('DELETE'); ?>
                                                 <button class="btn btn-danger btn-circle" type="submit"><i class="fas fa-trash"></i></button>
@@ -79,4 +81,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Sadra\Laravel\LaravelCRM\resources\views/users.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Sadra\Laravel\LaravelCRM\resources\views/clients.blade.php ENDPATH**/ ?>
