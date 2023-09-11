@@ -12,7 +12,10 @@ class ProjectController extends Controller
      */
     public function index()
     {
-
+        $projects = Project::with(['client','user'])->get();
+        return view('projects', [
+            'projects' => $projects
+        ]);
     }
 
     /**
