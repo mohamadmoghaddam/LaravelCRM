@@ -37,12 +37,22 @@
                     </div>
                 </div>
             </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
 
              <!-- Nav Item - Clients -->
              <li class="nav-item">
                 <a class="nav-link" href="/clients">
                     <i class="fas fa-fw fa-address-card"></i>
                     <span>Clients</span></a>
+            </li>
+
+             <!-- Nav Item - Projects -->
+             <li class="nav-item">
+                <a class="nav-link" href="/projects">
+                    <i class="fas fa-fw fa-file"></i>
+                    <span>Projects</span></a>
             </li>
 
             <!-- Divider -->

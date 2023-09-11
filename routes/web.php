@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard']);
     Route::resource('users', UserController::class);
     Route::resource('clients', ClientController::class);
+    Route::resource('projects', ProjectController::class);
 });
 Route::fallback(function () {
     return view('notfound');
