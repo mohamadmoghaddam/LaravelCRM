@@ -25,8 +25,9 @@
                         </div>
                         <div class="card-body">
                             <div class="p-5">
-                                <form class="user" method="post" action="/projects">
+                                <form class="user" method="post" action="/projects/{{ $project['id'] }}">
                                     @csrf
+                                    @method('PUT')
                                     <div class="form-group">
                                         <label for="exampleInputName">Title</label>
                                         <input type="text" name="title" value="{{old('title', $project['title'])}}"  class="form-control" id="exampleInputName"
@@ -84,7 +85,7 @@
                                             {{ $message }}
                                             @enderror
                                     </div>
-                                    <input type="submit" name="submit" class="btn btn-primary btn-user btn-block" value="Register Project">
+                                    <input type="submit" name="submit" class="btn btn-primary btn-user btn-block" value="Create Project">
                                 </form>
                             </div>
                         </div>
