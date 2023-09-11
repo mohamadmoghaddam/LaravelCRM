@@ -17,4 +17,16 @@ class ClientController extends Controller
     public function create(){
         return view('addclient');
     }
+
+    public function store(Request $request){
+        $request->validate([
+            'company_name' => 'required',
+            'company_address' => 'required'
+        ]);
+        Client::create([
+            'company_name' => $request->company_name,
+            'company_address' => $request->company_address
+        ]);
+        return redirect('/clients');
+    }
 }
