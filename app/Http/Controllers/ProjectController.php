@@ -84,7 +84,7 @@ class ProjectController extends Controller
             'client_id' => 'required|exists:clients,id',
             'status' => [
                 'required',
-                Rule::in(['open', 'delivered', 'canceled'])
+                Rule::in(['open', 'delivered', 'cancelled'])
             ]
         ]);
         $project->update($data);
