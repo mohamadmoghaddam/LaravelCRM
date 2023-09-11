@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Client;
+use App\Models\Project;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,6 +23,11 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        \App\Models\Client::factory(10)->create();
+        \App\Models\Project::factory()->count(3)
+        ->for(User::factory()->state([
+            'username' => 'Jessiccher'
+        ]))->for(Client::factory()->state([
+            'company_name' => 'mihan corporative'
+        ]))->create();
     }
 }
