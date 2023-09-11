@@ -26,7 +26,12 @@
                     <!-- Users Table -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Projects<button class="btn btn-success btn-icon-split btn-sm float-right" onclick="window.location.href='/projects/create';">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="text">Add Project</span>
+                            </button></h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
